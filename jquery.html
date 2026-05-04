@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>jQuery | Sweet Crumbs Cake Company</title>
+
+<!-- jQuery Library -->
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+<style>
+body{
+    background-color:#f47777;
+    font-family:Arial;
+    margin:0;
+    text-align:center;
+}
+
+/* Header */
+header{
+    background-color:#ffb6c1;
+    padding:20px;
+}
+
+/* Navbar */
+.navbar{
+    background-color:#ff9db0;
+    padding:10px;
+}
+
+.navbar a{
+    margin:10px;
+    text-decoration:none;
+    color:black;
+    font-weight:bold;
+}
+
+/* Footer */
+footer{
+    background-color:#ffb6c1;
+    padding:15px;
+    margin-top:30px;
+}
+
+/* Dark Mode */
+.dark{
+    background-color:#333;
+    color:white;
+}
+
+/* Cake Image */
+#cakeImage{
+    width:250px;
+    height:250px;
+    border-radius:10px;
+    margin-top:20px;
+}
+
+/* Buttons */
+button{
+    margin:10px;
+    padding:10px 20px;
+    background-color:#ff6f91;
+    color:white;
+    border:none;
+    border-radius:5px;
+    cursor:pointer;
+}
+
+button:hover{
+    background-color:#ff4f75;
+}
+
+/* Cake List */
+ul{
+    list-style-type:none;
+    padding:0;
+}
+</style>
+</head>
+
+<body>
+
+<!-- Header -->
+<header>
+    <h1>Sweet Crumbs Cake Company</h1>
+    <p><i>Fun jQuery Features</i></p>
+</header>
+
+<!-- Navbar -->
+<div class="navbar">
+    <a href="index.html">Home</a>
+    <a href="pages.html">Cake Information</a>
+    <a href="pages2.html">About Us</a>
+    <a href="jquery.html">jQuery</a>
+    <a href="materialize.html">Materialize</a>
+    <a href="bootstrap.html">Bootstrap</a>
+</div>
+
+<!-- Main Content -->
+<h2>Interactive Cake Features</h2>
+
+<p>Click the buttons below to interact with our bakery page!</p>
+
+<!-- Dark Mode -->
+<button id="darkModeBtn">Toggle Dark Mode</button>
+
+<hr>
+
+<!-- Add Cake Flavors -->
+<button id="addCake">Add Cake Flavor</button>
+<ul id="cakeList"></ul>
+
+<hr>
+
+<!-- Fade Cake Image -->
+<button id="fadeBtn">Show/Hide Cake</button>
+
+<br>
+
+<img id="cakeImage" src="Image 4-26-26 at 4.35 PM.jpeg" alt="Red Velvet Cake">
+
+<!-- Footer -->
+<footer>
+    <p>Sweet Crumbs Cake Company | 529 High Street | Chagrin Falls, Ohio</p>
+</footer>
+
+<script>
+$(document).ready(function(){
+
+    // Dark mode
+    $("#darkModeBtn").click(function(){
+        $("body").toggleClass("dark");
+    });
+
+    // Add cake flavors
+    let cakes = [
+        "Chocolate Fudge Cake",
+        "Red Velvet Cake",
+        "Vanilla Buttercream Cake",
+        "Strawberry Shortcake",
+        "Lemon Layer Cake"
+    ];
+
+    let index = 0;
+
+    $("#addCake").click(function(){
+        if(index < cakes.length){
+            $("#cakeList").append("<li>" + cakes[index] + "</li>");
+            index++;
+        } else {
+            alert("All cake flavors have been added!");
+        }
+    });
+
+    // Fade image
+    $("#fadeBtn").click(function(){
+        $("#cakeImage").fadeToggle();
+    });
+
+});
+</script>
+
+</body>
+</html>
